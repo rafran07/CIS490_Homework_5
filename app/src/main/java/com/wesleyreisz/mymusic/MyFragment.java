@@ -24,10 +24,6 @@ public class MyFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState)
     {
         View myFragmentView = inflater.inflate(R.layout.my_fragment_layout, container, false);
-        listView = (ListView)myFragmentView.findViewById(R.id.listView2);
-        List<Song> songs = new MockMusicService().findAll();
-        SongAdapater songAdapter = new SongAdapater(this,R.layout.fragment_item,songs);
-        listView.setAdapter(songAdapter);
 
         return myFragmentView;
     }

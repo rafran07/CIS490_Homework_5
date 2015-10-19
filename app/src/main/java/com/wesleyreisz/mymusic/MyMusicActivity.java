@@ -21,7 +21,7 @@ public class MyMusicActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_music);
 
-        ListView listView = (ListView) findViewById(R.id.listView2);
+        ListView listView = (ListView) findViewById(R.id.lstView2);
         List<Song> songs = new MockMusicService().findAll();
 
         SongAdapter songAdapter = new SongAdapter(this, R.layout.my_fragment_layout,songs);
