@@ -8,6 +8,11 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.ListView;
 
+import com.wesleyreisz.mymusic.model.Song;
+import com.wesleyreisz.mymusic.service.MockMusicService;
+
+import java.util.List;
+
 
 public class MyMusicActivity extends Activity {
 
@@ -16,11 +21,12 @@ public class MyMusicActivity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_my_music);
 
-        MyFragment frag = new MyFragment();
-        FragmentManager manager = getFragmentManager();
-        FragmentTransaction transaction = manager.beginTransaction();
-        transaction.add(R.id.my_layout, frag, "Fragment");
-        transaction.commit();
+        ListView listView = (ListView) findViewById(R.id.listView2);
+        List<Song> songs = new MockMusicService().findAll();
+
+        SongAdapter songAdapter = new SongAdapter(this, R.layout.my_fragment_layout,songs);
+
+        listView.setAdapter(songAdapter);
     }
 
 
